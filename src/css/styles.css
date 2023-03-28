@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Irish+Grover&family=Italianno&display=swap');
+/*font-family: 'Aboreto', cursive;
+font-family: 'Irish Grover', cursive;
+font-family: 'Italianno', cursive;
+*/
+
+/***  VARIABLES & THEMES ***/
+
+:root {
+    --primary-color:  #740001;
+    --primary-color-contrast: #ffffff;
+  }
+
+  .light-theme {
+    --page-background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #ffffff 65%,
+      rgba(255, 255, 255, 0.75) 100%
+    );
+    --header-background-color: #e3e3e3;
+    --highlight-color: #0a1318;
+    --featured-font-family: 'Aboreto', cursive;
+    --character-top-image-src: url("../images/characters/HP\ trio.png");
+    --character-top-image-color: #ffffff;
+    --character-bottom-image-src: url("../images/characters/castle.png");
+    --character-bottom-image-color: #e5e5e5;
+    --background-vintage-image: url("../images/backgrounds/upToNotGood.png");
+    --field-background-color: #e3e3e3;
+
+    --background-image-poster: url("../images/content/officialposter.jpg");
+
+    --footer-background-color: #c5c5c5;
+    --border-image-old-vintage: url("../images/backgrounds/OldParchmentBackground.jpg");
+    --grover-font-family: 'Irish Grover', cursive;
+    --footer-logo-image: url("../images/footer/hpLogo.png");
+    --footer-footprints-image: url("../images/footer/footprints.png");
+
+  }
+  
+  .dark-theme {
+    --page-background: linear-gradient(to bottom, #050607, #06090b, #080d0e, #090f10, #0a1212, #0b1212, #0b1313, #0c1313, #0c1213, #0d1112, #0d0f11, #0d0e0f);
+
+    --header-background-color: #0a170a ;
+    --highlight-color: #ffffff;
+    --featured-font-family: 'Aboreto', cursive;
+    --character-bottom-image-src: url("../images/characters/HP\ trio.png");
+    --character-bottom-image-color: rgba(255, 255, 255, 0.1);
+    --character-top-image-src: url("../images/characters/castle.png");
+    --character-top-image-color: #000;
+    --background-image-poster: url("../images/content/posterofficialtwo.jpg");
+    --background-vintage-image: url("../images/backgrounds/upToNotGood.png");
+    --field-background-color: #0a1318;
+    --border-image-old-vintage: url("../images/backgrounds/ParedeDeTijolo.jpg");
+    --footer-background-color: linear-gradient(to bottom, #050607, #06090b, #080d0e, #090f10, #0a1212, #0b1212, #0b1313, #0c1313, #0c1213, #0d1112, #0d0f11, #0d0e0f);
+    --grover-font-family: 'Irish Grover', cursive;
+    --footer-logo-image: url("../images/footer/LogoCinzaClaro.png");
+    --footer-footprints-image: url("../images/footer/footprintsGrey.png");
+
+    }
+  
+  .dark-theme button,
+  .dark-theme h1,
+  .dark-theme h2,
+  .dark-theme h3 {
+    letter-spacing: 4px;
+    font-weight: 600;
+  }
+  
+  .dark-theme .invert-element {
+    transform: rotateZ(180deg) scaleX(-1);
+  }
+    
+  /***  GENERIC STYLES ***/
+
+  body {
+    background: var(--page-background);
+  }
+  
+  h1,
+  h2,
+  h3 {
+    font-family: var(--grover-font-family);
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  
+  p {
+    color: var(--highlight-color);
+    font-weight: 600;
+ 
+  }
+  
+  p,
+  input,
+  textarea,
+  label {
+    font-family: var(--featured-font-family);
+  }
+  
+  button {
+    padding: 12px 20px;
+    background-color: transparent;
+    font-weight: 900;
+    font-family: var(--grover-font-family);
+    font-size: 1.28rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 1s;
+    letter-spacing: 2px;
+  }
+  
+  main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  main::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: var(--page-background) no-repeat,
+      url("../images/backgrounds/florest.png") no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+  
+  input,
+  textarea {
+    border: 2px solid var(--primary-color-contrast);
+    border-radius: 4px;
+    background-color: var(--field-background-color);
+    color: var(--primary-color-contrast);
+    padding: 8px;
+  }
+  
+  input,
+  textarea {
+    margin-bottom: 24px;
+  }
+  
+  label {
+    margin-bottom: 8px;
+  }
+  
+  /*apply a focus indicator only on keyboard-focus*/
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+    border-color: black;
+  }
+  
+  /*** HEADER STYLES ***/
+  
+  header {
+    background-color: var(--header-background-color);
+    min-height: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  header::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url("../images/banner/florest.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 90%;
+    /*super-saturates or desaturates the input image*/
+    filter: saturate(0);
+    opacity: 0.2;
+  }
+  
+  .header-content {
+    max-width: 700px;
+    padding: 20px;
+    text-align: center;
+    z-index: 2;
+  }
+  
+  .header-content .logo {
+    max-height: 280px;
+  }
+
+  .header-content img {
+    width: 100%;
+  }
+  
+  .header-content p {
+    margin: 10px 0;
+  }
+  
+  .header-content button {
+    margin-top: 95px;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    color: var(--primary-color);
+  }
+  
+  .header-content button:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+  }
+  
+  /*** WORLD CHARACTERS STYLES ***/
+  
+  .world-characters {
+    width: 100%;
+    max-width: 600px;
+    position: absolute;
+  }
+  
+  .world-characters#top-characters {
+    height: 100%;
+    background-color: var(--character-top-image-color);
+
+  
+    mask: var(--character-top-image-src) bottom / contain no-repeat;
+    -webkit-mask: var(--character-top-image-src) bottom / 100% no-repeat;
+  }
+  
+  .world-characters#bottom-characters {
+    height: 500px;
+    background-color: var(--character-bottom-image-color);
+    transform: rotateZ(180deg) scaleX(-1);
+    position: relative;
+  
+    mask: var(--character-bottom-image-src) bottom / contain no-repeat;
+    -webkit-mask: var(--character-bottom-image-src) bottom / 100% no-repeat;
+  }
+  
+  /*** SECTIONS STYLES ***/
+  
+  section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 200px;
+  }
+  
+  /* Section 01 - Inverted World */
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  #section-inverted-world {
+    align-items: center;
+    
+  }
+  
+  #section-inverted-world .section-texts {
+    width: 50%;
+  }
+  
+  #section-inverted-world .section-texts h1 {
+    max-width: 300px;
+  }
+  
+  #section-inverted-world .invert-element {
+    max-height: 700px;  
+  }
+
+  #section-inverted-world img {
+    max-height: 600px;
+    outline: 8px solid var(--primary-color);
+    border: 20px solid;
+    border-image: var(--border-image-old-vintage);
+
+    /*Define como a imagem será recortada para ser distribuída nas bordas*/
+    border-image-slice: 90;
+    transform: rotate(5.68deg);
+  }
+
+  /* Section 02 - Stranger Things Trailer */
+  
+  #section-harry-potter-trailer .section-texts {
+    width: 50%;
+    text-align: right;
+  }
+  
+  #section-harry-potter-trailer .section-texts h2 {
+    max-width: 425px;
+    display: inline-block;
+  }
+  
+  #section-harry-potter-trailer .video-frame {
+    background-image: var(--border-image-old-vintage); 
+  }
+  
+  #section-harry-potter-trailer .video-frame iframe {
+    position: relative;
+    bottom: 24px;
+    left: 24px;
+    border: 8px solid var(--primary-color);
+    border-image-slice: 10;
+  }
+  
+  /* Section 03 - Harry Potter Gallery */ 
+  #section-harry-potter-gallery {
+    width: 100%;
+    background: var(--background-vintage-image) 120% / 44% no-repeat;
+    justify-content: center;  
+  }
+  
+  #section-harry-potter-gallery .container {
+    width: 100%;
+  }
+  
+  #section-harry-potter-gallery .container h2 {
+    width: 800px;
+    margin-bottom: 80px;
+  }
+  
+  #section-harry-potter-gallery .gallery-container {
+    display: flex;
+    gap: 50px;
+    padding-left: 20px;
+    animation: animate 8s linear 5 alternate;
+    animation-delay: 3s;
+  }
+  
+  #section-harry-potter-gallery .gallery-image {
+    width: 250px;
+    height: 250px;
+    outline: 8px solid var(--primary-color);
+    box-sizing: initial;
+    border: 20px solid;
+    border-image: var(--border-image-old-vintage);
+
+    /*Define como a imagem será recortada para ser distribuída nas bordas*/
+    border-image-slice: 80;
+    transform-style: preserve-3d;
+ 
+  
+  }
+  
+  #section-harry-potter-gallery .gallery-image img {
+    width: 100%;
+    height: 100%;
+    /*especificar como um objeto (imagem, vídeo, iframe ou embed) deve ser redimensionado para se ajustar ao seu contêiner.*/
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+    position: absolute;
+  }
+  
+  @keyframes animate {
+      0% {
+          transform: translateX(100px);
+      }
+      100% {
+          transform: translateX(0);
+      }
+  }
+
+  /* Section 04 - Fan Clube Form */
+  
+  #section-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  #section-form h3 {
+    width: 600px;
+  }
+
+  #section-form p {
+    max-width: 80%;
+    margin: 0 auto;
+
+  }
+  
+  #section-form .form-content h3 {
+    color: var(--highlight-color);
+  }
+  
+  #section-form .form-content h3 span {
+    color: var(--primary-color);
+  }
+  
+
+  #section-form .form-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #section-form .form-content h3 {
+    flex-basis: 25%;
+    text-align: left;
+    margin: 0;
+  }
+  
+  #section-form .form-container {
+    flex-basis: 50%;
+    position: relative;
+  }
+  
+  #section-form .form-container::after {
+    content: "";
+    background-image: var(--border-image-old-vintage);
+    transform: rotateZ(360deg) scaleX(-1);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: -1;
+  }
+  
+  #section-form .form-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+    text-align: left;
+  }
+  
+  #section-form .form-container form button {
+    border: 3px solid;
+    border-radius: 4px;
+    color: var(--primary-color-contrast);
+    max-width: 300px;
+    align-self: center;
+  }
+  
+  #section-form .form-container form button:hover {
+    background-color: var(--primary-color-contrast);
+    color:  var(--primary-color);
+    border: 3px solid var(--primary-color-contrast);
+  }
+  
+  /*** FOOTER STYLES ***/
+  
+  footer {
+    padding: 25px 0;
+    background-color: var(--footer-background-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  
+  }
+  
+  footer .footer-logo {
+    content: var(--footer-logo-image);
+    max-width: 300px;
+
+  }
+  footer img {
+    max-width: 300px;
+    margin-bottom: 24px;
+  }
+  
+  footer::before,
+  footer::after {
+    content: "";
+    width: 280px;
+    height: 100px;
+    background: var(--footer-footprints-image);
+    background-size: contain;
+    position: absolute;
+
+
+
+  }
+  
+  footer::before {
+    left: -20px;
+    transform: rotateZ(-6deg);
+  }
+  
+  footer::after {
+    right: -20px;
+    transform: rotateZ(10deg);
+  }
+  

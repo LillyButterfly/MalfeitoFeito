@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizarding World</title>
+
+    <link rel="stylesheet" href="src/css/reset.css"/>
+    <link rel="stylesheet" href="src/css/styles.css"/>
+</head>
+
+<body class="light-theme" aria-label="O site está utilizando o tema light" role="body">
+
+    <header>
+       <!-- <audio id="music" autoplay>
+            <source src="./src/musics/Lumos (Hedwigs Theme).mp3" aria-details="Audio do site" />
+          </audio>-->
+          <div class="header-content">
+            <img class="logo" src="src/images/banner/hp logo.png" alt="Imagem principal Harry Potter. Semana Frontend DIO." />
+            <p class="principal-p" role="text">
+                A história de Harry Potter foi escrita pela autora inglesa J. K. Rowling e derivou sete livros e oito filmes que foram adaptados para o cinema, criando uma das maiores legiões de fãs do século XXI.
+            </p>
+            <button id="switch-theme-button" onclick="switchTheme()">Malfeito, Feito!</button>
+          </div>
+    
+          <div id="top-characters" class="world-characters"></div>
+    </header>
+
+    <main>
+         <div id="bottom-characters" class="world-characters"></div>
+
+      <section id="section-inverted-world" class="container">
+        <div class="section-texts">
+          <h1>Harry Potter e o Prisioneiro de Askaban</h1>
+          <p role="text">
+            Juntamente com Rony e Hermione, seus melhores amigos, Harry Potter está no terceiro ano na Escola de Magia e Bruxaria de Hogwarts. Os assustadores guardas da prisão de Azkaban os dementadores foram chamados para vigiar as entradas da escola, pois um perigoso assassino está foragido e tudo indica que o seu alvo é Harry Potter. O que acontecerá com Harry diante desta ameaça?
+          </p>
+        </div>
+        <div class="invert-image">
+
+        </div>
+        
+       <img class=""
+          src="./src/images/content/posterofficialtwo.jpg"
+          alt="Image ilustrativa do filme Harry Potter e o Prisioneiro de Askaban"
+        />
+
+      </section>
+
+      <section id="section-harry-potter-trailer" class="container">
+        <div class="video-frame" aria-hidden="true">
+          <!--IFRAME tag que coloca conteúdo de outra página dentro do documento-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/V_JtCbmkPA0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="section-texts">
+          <h2>Pegue o Expresso para Hogwarts</h2>
+          <p role="text">
+            “É possível encontrar a felicidade nas horas mais sombrias, se a pessoa se lembrar de acender a luz.” - Dumbledore 
+          </p>
+        </div>
+      </section>
+
+      <section id="section-harry-potter-gallery">
+        <div class="container section-text">
+          <h2>Terceiro filme da saga Harry Potter é eleito melhor filme infantil da decada</h2>
+          <ul class="gallery-container" role="gallery">
+            <li class="gallery-image">
+              <img src="src/images/content/sirius UM4.jpg" alt="Imagem de Sirius em Askaban" />
+            </li>
+            <li class="gallery-image">
+                <img src="src/images/content/Harry Potterscenes.jpg" alt="Imagem capa do filme Harry potter e o Prisioneiro de Askaban" />
+              </li>
+            <li class="gallery-image">
+              <img src="src/images/content/harry and hermione.png" alt="Imagem ilustrativa do Harry Potter e Hermione, Ronny e Hermione" />
+            </li>  
+          </ul>
+        </div>
+      </section>
+
+      <section id="section-form" class="container">
+        <h3>Universo HP fan clube</h3>
+            <p>
+            Junte-se ao Harry Potter Fan Club, participe da Cerimônia de Classificação de Hogwarts, jogue questionários e quebra-cabeças e explore todos os cantos do Mundo Mágico.
+            </p>
+
+        <div class="form-content">
+          <h3>Entre para o clube Universo HP e tenha experiências <span>mágicas</span></h3>
+
+          <div class="form-container">
+            <form>
+              <label for="name">Nome Completo</label>
+              <input type="text" name="name" id="txtName">
+          
+              <label for="email">E-mail</label>
+              <input type="email" name="email" id="txtEmail">
+          
+              <label for="Casa">Casa</label>
+              <input type="text" name="level" id="txtLevel">
+          
+              <label for="Porque">Porque deseja se tornar parte do fan clube?</label>
+              <textarea name="Porque" cols="30" rows="10" id="txtCharacter"></textarea>
+            
+              <button type="button" id="btnSubscribe">Me inscrever</button>
+            </form>
+            <script type="module" src="./src/js/script.js"></script>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-logo"></div>
+        <!--<img src="src/images/footer/hpLogo.png" alt="Imagem ilustrativa logo Hary Potter"/>
+    </footer>-->
+
+    <script>
+      window.addEventListener('click', function() {
+        const audio = document.getElementById('music');
+        audio.play();
+        audio.volume = 0.2;
+      });
+
+      function switchTheme() {
+        document.body.classList.toggle('dark-theme');
+        document.body.classList.toggle('light-theme');
+
+        document.body.setAttribute('aria-label', 'Trocando o tema');
+
+        const theme = document.body.classList[0];
+        const music = theme === 'light-theme' ? 'normal-world.mpeg' : 'inverted-world.mpeg'
+
+        const audio = document.getElementById('music');
+        audio.src = `src/musics${music}`;
+        audio.play();
+        audio.volume = 0.2;
+      }
+    </script>
+  </body>
+</html>
